@@ -1,4 +1,4 @@
-const FRONT = 'http://localhost:5500/'
+const FRONT = 'http://localhost:5500/frontend/'
 const API = 'http://localhost:8081/api/employees/'
 
 window.onload = function(e){

@@ -1,27 +1,27 @@
 const FRONT = 'http://localhost:5500/'
-const API = 'http://localhost:8081/api/products/'
+const API = 'http://localhost:8081/api/employees/'
 
 window.onload = function(e){
-  listProducts()
+  listEmployees()
 }
 
-function createTable(products){
-  const tableBody = document.querySelector('#iProducts')
+function createTable(employees){
+  const tableBody = document.querySelector('#iEmployees')
   tableBody.innerHTML = ''
 
-  if(products){
-    const lines = products.map(product => {
+  if(employees){
+    const lines = employees.map(employee => {
       const tdId = document.createElement('td')
-      tdId.innerHTML = product.id
+      tdId.innerHTML = employee.id
 
-      const tdDescription = document.createElement('td')
-      tdDescription.innerHTML = product.description
+      const tdName = document.createElement('td')
+      tdName.innerHTML = employee.name
 
-      const tdQuantity = document.createElement('td')
-      tdQuantity.innerHTML = product.quantity
+      const tdDependents = document.createElement('td')
+      tdDependents.innerHTML = employee.dependents
 
-      const tdPrice = document.createElement('td')
-      tdPrice.innerHTML = product.price.toLocaleString('pt-BR',
+      const tdSalary = document.createElement('td')
+      tdSalary.innerHTML = employee.salary.toLocaleString('pt-BR',
                                                         {
                                                           currency: 'BRL',
                                                           style: 'currency'
@@ -29,7 +29,7 @@ function createTable(products){
 
       const btnEdit = document.createElement('a')
       btnEdit.innerHTML = 'Edit'
-      btnEdit.setAttribute('href', FRONT + 'update_product.html?id=' + product.id)
+      btnEdit.setAttribute('href', FRONT + 'update_employee.html?id=' + employee.id)
       btnEdit.classList.add('btn', 'btn-primary', 'me-2')
 
       const btnDelete = document.createElement('a')
@@ -37,10 +37,10 @@ function createTable(products){
       btnDelete.classList.add('btn', 'btn-danger')
       btnDelete.addEventListener('click', function (event){
         if(confirm('Are you sure you want to delete?')){
-          axios.delete(API + product.id, {
+          axios.delete(API + employee.id, {
           }).then(res => {
               //alert(res.data.message)
-              listProducts()
+              listEmployees()
             })
         }
       }, false)
@@ -51,9 +51,9 @@ function createTable(products){
 
       const tr = document.createElement('tr')
       tr.appendChild(tdId)
-      tr.appendChild(tdDescription)
-      tr.appendChild(tdQuantity)
-      tr.appendChild(tdPrice)
+      tr.appendChild(tdName)
+      tr.appendChild(tdDependents)
+      tr.appendChild(tdSalary)
       tr.appendChild(tdActions)
 
       return tr
@@ -63,7 +63,7 @@ function createTable(products){
   }
 }
 
-async function listProducts(){
+async function listEmployees(){
   const res = await axios.get(API, {
   })
   console.log(res)

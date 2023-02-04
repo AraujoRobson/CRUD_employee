@@ -10,6 +10,6 @@ import lombok.Data;
 public class Employee {
 	private Long id;
 	private String name;
-	private Integer numberOfDependent;
+	private Integer dependents;
 	private BigDecimal salary;
 }

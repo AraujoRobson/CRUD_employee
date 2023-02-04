@@ -35,7 +35,7 @@ public class Controller {
 	
 //  ADD NEW EMPLOYEE
 	@PostMapping("/employees")
-	public Employee addEmployee(Employee employee) {
+	public Employee addEmployee(@RequestBody Employee employee) {
 		employees.add(employee);
 		return employee;
 	}

@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Employee {
+	private Long id;
 	private String name;
 	private Integer numberOfDependent;
 	private BigDecimal salary;

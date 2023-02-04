@@ -1,5 +1,6 @@
 package br.edu.unoesc.crud_employee.controller;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import br.edu.unoesc.crud_employee.model.Employee;
 @RestController
 @RequestMapping(value = "/api")
 public class Controller {
-	Employee employee;
+	Employee employee = new Employee(1L, "Robson", 1, new BigDecimal("10000.00"));
 	
 	List<Employee> employees;
 	
@@ -27,7 +28,7 @@ public class Controller {
 	}
 	
 //	LIST EMPLOYEES
-	@GetMapping(value = "/emplyees")
+	@GetMapping(value = "/employees")
 	public List<Employee> listEmployees(){
 		return employees;
 	}
@@ -40,7 +41,7 @@ public class Controller {
 	}
 	
 //	SEARCH EMPLOYEE   
-	@GetMapping(value = "/employee/{id}")
+	@GetMapping(value = "/employees/{id}")
 	public Employee findById(@PathVariable Long id) {
 		for(Employee employee : employees) {
 			if(employee.getId().equals(id)) {
@@ -51,19 +52,19 @@ public class Controller {
 	}
 	
 //  UPDATE EMPLOYEE
-	@PutMapping("/employee")
+	@PutMapping("/employees")
 	public Employee updateEmployee(@RequestBody Employee employee) {
 		Employee e = findById(employee.getId());
 		
 		e.setName(employee.getName());
-		e.setNumberOfDependent(employee.getNumberOfDependent());
+		e.setDependents(employee.getDependents());
 		e.setSalary(employee.getSalary());
 		
 		return e;
 	}
 	
 //	DELETE EMPLOYEE
-	@DeleteMapping(value = "/employee/{id}")
+	@DeleteMapping(value = "/employees/{id}")
 	public void deleteEmployee(@PathVariable Long id) {
 		Employee e = findById(id);
 		

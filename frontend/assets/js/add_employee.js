@@ -19,9 +19,7 @@ async function addEmployee(){
       res.data.toString = function() {
         return `successfully added
         \nID: ${this.id}
-        \nName: ${this.name}
-        \nDependents: ${this.dependents}
-        \nSalary: ${this.salary}`
+        \nName: ${this.name}`
       }
       alert(res.data)
       setTimeout(() => window.location.href = '/frontend', 100);

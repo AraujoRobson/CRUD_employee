@@ -66,6 +66,5 @@ function createTable(employees){
 async function listEmployees(){
   const res = await axios.get(API, {
   })
-  console.log(res)
   createTable(res.data)
 }

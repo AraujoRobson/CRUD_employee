@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="./assets/js/update_product.js"></script>
+  <script src="./assets/js/update_employee.js"></script>
 
-  <title>Update Product</title>
+  <title>Update Employee</title>
 </head>
 <body>
   <div class="container my-2 col">
@@ -21,7 +21,7 @@
       <img src="https://portal.crea-sc.org.br/wp-content/uploads/2019/04/UNOESC-300x100.jpg" alt="unoesc" width="300px">
     </div>
 
-    <h2 class="alert alert-info mt-2">Update Product</h2>
+    <h2 class="alert alert-info mt-2">Update Employee</h2>
 
     <a href="#" onclick="window.history.back()">Come back</a>
     <hr>
@@ -34,23 +34,23 @@
       </div>
 
       <div class="form-floating mb-3">
-        <input type="text" name="nDescription" id="iDescription" class="form-control" placeholder="Enter the description" required>
-        <label for="iDescription">Description</label>
+        <input type="text" name="nName" id="iName" class="form-control" placeholder="Enter the Name" required>
+        <label for="iName">Name</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="number" name="nQuantity" id="iQuantity" class="form-control" placeholder="Enter the quantity" required>
-        <label for="iQuantity">Quantity</label>
+        <input type="number" name="nDependents" id="iDependents" class="form-control" placeholder="Enter the Numbers of Dependents" required>
+        <label for="iDependents">Numbers of Dependents</label>
       </div>
 
       <div class="form-floating mb-3">
-        <input type="number" step="any" name="nPrice" id="iPrice" class="form-control" placeholder="Enter the price" required>
-        <label for="iPrice">Price</label>
+        <input type="number" step="any" name="nSalary" id="iSalary" class="form-control" placeholder="Enter the Salary" required>
+        <label for="iSalary">Salary</label>
       </div>
 
       <div class="form-group mb-3 text-center">
         <div id="iOperation" class="d-inline">
-          <button type="button" class="btn btn-success" onclick="updateProduct()">
+          <button type="button" class="btn btn-success" onclick="updateEmployee()">
             <i class="fa fa-save"></i>
             Save
           </button>

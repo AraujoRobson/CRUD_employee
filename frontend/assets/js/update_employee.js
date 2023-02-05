@@ -1,5 +1,5 @@
 let id, formId, formName, formDependents, formSalary
-const URL = 'http://localhost:8081/api/employee/'
+const URL = 'http://localhost:8081/api/employees/'
 
 window.onload = async function(e){
   const query = window.location.search
@@ -12,14 +12,14 @@ window.onload = async function(e){
   formSalary = document.querySelector('#iSalary')
 
   const employee = await searchEmployee(id)
-  fillOutForm(employee)
+  fillInForm(employee)
 }
 
-function fillOutForm(employee){
+function fillInForm(employee){
   formId.value = employee.id
-  formName.value = employee.description
-  formDependents.value = employee.quantity
-  formSalary.value = employee.price
+  formName.value = employee.name
+  formDependents.value = employee.dependents
+  formSalary.value = employee.salary
 }
 
 async function searchEmployee(id) {
@@ -36,7 +36,7 @@ async function updateEmployee() {
   axios.put(URL + id, {id, name, dependents, salary})
     .then(res => {
       res.data.toString = function() {
-        return `successfully added
+        return `successfully updated
         \nID: ${this.id}
         \nName: ${this.name}`
       }
